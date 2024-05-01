@@ -177,6 +177,7 @@ class IntegrateInspiralGeneratorBase:
         Edot = self.Edot_norm(chi, alpha, *args)*self.pn_flux_noprefactor(omega)
         return np.array([-Edot/(dE_dOmega*dOmega_dAlpha), omega])
 
+    #don't use directly, better just call, see below
     def integrate_eom(self, M, mu, a, r0, dt, T, *args, **kwargs):
         omega0 = self.omega_of_a_r(a, r0)
         oISCO = self.isco_frequency(a)
