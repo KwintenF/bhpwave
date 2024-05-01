@@ -178,7 +178,6 @@ class IntegrateInspiralGeneratorBase:
         return np.array([-Edot/(dE_dOmega*dOmega_dAlpha), omega])
 
     def integrate_eom(self, M, mu, a, r0, dt, T, *args, **kwargs):
-        T = T*yr_MKS
         omega0 = self.omega_of_a_r(a, r0)
         oISCO = self.isco_frequency(a)
         alpha0 = self.alpha_of_omega(omega0, oISCO)
