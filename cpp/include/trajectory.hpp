@@ -5,7 +5,6 @@
 #include <sstream>
 #include <fstream>
 #include <iostream>
-#include <cmath>
 #include "spline.hpp"
 #include "omp.h"
 
