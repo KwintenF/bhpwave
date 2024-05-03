@@ -37,7 +37,7 @@ class InspiralGenerator:
         if omega > omega_max or omega < omega_min:
             raise ValueError("Radius corresponds to a frequency that lies outside the valid domain of [{},{}]".format(omega_min, omega_max))
 
-    def __call__(self, M, mu, a, r0, dt, T, num_threads=0):
+    def __call__(self, M, mu, a, r0, dt, T, num_threads=0,check=False):
         """
         Generates a quasi-circular inspiral of a point-particle around a rotating massive black hole.
 
@@ -58,7 +58,7 @@ class InspiralGenerator:
         massratio = mu/M
         dtM = dt/(M*Modot_GC1_to_S)
         TM = T*yr_MKS/(M*Modot_GC1_to_S)
-        self.check_radius(a, r0)
+        if check: self.check_radius(a, r0)
 
         inspiralwrapper=self.inspiral_generator(massratio, a, r0, dtM, TM, num_threads)
         inspiral = Inspiral(inspiralwrapper)
